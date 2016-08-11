@@ -18,7 +18,7 @@ I. CLI is responsible for
 2. - list the albums or tracks under the user’s chosen option.
    - list albums or tracks by ordered number, and the option to exit back to the main menu of the data gem.
    - MENU
-      1.music list(either album title or track title)
+      1. music list(either album title or track title)
       .
       .
       .
