@@ -75,6 +75,13 @@ class PitchforkBestNewMusic::Scraper
 		# end
 	end
 
+	def self.scrape_album_review_page(album_review_url)
+		album_review_doc = Nokogiri::HTML(open(album_review_url).read, nil, 'utf-8')
+		review = album_review_doc.css("div.article-content")
+		binding.pry
+		# deck:
+
+	end
 
 
 
