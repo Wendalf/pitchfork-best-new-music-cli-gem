@@ -1,8 +1,8 @@
 class PitchforkBestNewMusic::Scraper
 
-	def self.scrape_albums_page(album_url)
-		# album_url = "http://pitchfork.com/best/high-scoring-albums/"
-		page = Nokogiri::HTML(open(album_url))
+	def self.scrape_albums_page(album_list_url)
+		# album_list_url = "http://pitchfork.com/reviews/best/albums/"
+		page = Nokogiri::HTML(open(album_list_url))
 		albums = page.css("div.fragment-list div.review")
 		scraped_albums = []
 		# artist_name: album.css("a div.album-artist ul.artist-list li").text
@@ -26,6 +26,8 @@ class PitchforkBestNewMusic::Scraper
 		# 	puts "#{index+1}. #{single_album_hash}"
 		# end
 	end
+
+
 
 
 end
