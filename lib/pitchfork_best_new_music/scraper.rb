@@ -21,10 +21,10 @@ class PitchforkBestNewMusic::Scraper
 			}
 			scraped_albums << single_album_hash
 		end
+		scraped_albums
 		# scraped_albums.each_with_index do |single_album_hash, index|
 		# 	puts "#{index+1}. #{single_album_hash}"
 		# end
-
 	end
 
 
