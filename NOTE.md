@@ -1,4 +1,4 @@
-Three main Classes: CLI, Album, Tracks, Scraper
+Four main Classes: CLI, Album, Track, Scraper
 
 I. CLI is responsible for
  
