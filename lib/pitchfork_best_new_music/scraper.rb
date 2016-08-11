@@ -78,11 +78,22 @@ class PitchforkBestNewMusic::Scraper
 	def self.scrape_album_review_page(album_review_url)
 		album_review_doc = Nokogiri::HTML(open(album_review_url).read, nil, 'utf-8')
 		review = album_review_doc.css("div.article-content")
-		binding.pry
-		# deck:
-
+		first_paragraph_doc = review.css("div.contents.dropcap p")[0]
+		# deck: review.css("div.abstract p").text
+		# first_paragraph: first_paragraph_doc.text
+		album_review_detail_hash = {
+			deck: review.css("div.abstract p").text,
+			first_paragraph: first_paragraph_doc.text
+		}
 	end
 
-
+	def self.scrape_track_review_page(track_review_url)
+		track_review_doc = Nokogiri::HTML(open(track_review_url).read, nil, 'utf-8')
+		review = track_review_doc.css("div.review-copy-container")
+		first_paragraph_doc = review.css("div.review-copy div.contents p")[0]
+		# binding.pry
+		# first_paragraph: first_paragraph_doc.text
+		track_review_detail_hash = {first_paragraph: first_paragraph_doc.text}
+	end
 
 end
