@@ -27,7 +27,7 @@ I. CLI is responsible for
    - outputs “invalid input” and asks for the user’s input again when user enter an invalid input other the number of the music review or exit back to main menu.
 
 
-3.- display details(attributes) of this album or track, including title, artist name, genre, review author, etc.
+3. - display details(attributes) of this album or track, including title, artist name, genre, review author, etc.
    - display introduction/headline of the music review.
    - display the first paragraph of the review.
    - asks user’s input to access the whole review/listen to the featured tracks, back to the music list, or exit gem.
