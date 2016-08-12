@@ -1,4 +1,5 @@
-Four main Classes: CLI, Review, Scraper
+Four main Classes: CLI, Scraper, Album, Track
+One Module: Review
 
 
 I. CLI is responsible for
@@ -36,16 +37,7 @@ I. CLI is responsible for
    - outputs “invalid input” and asks for the user’s input again when user enter an invalid input other the menu options.
 
 
-II. Review is responsible for
-
-1. makes a review instance. When a review instance initialize, use mass assignment to give the instance keys and values based on the given data(album or track review), save the instance to the class variable @@all.
-
-2. keeps track of all the review instances that has been created. Review class @@all array is accessible by the CLI class.
-
-3. adds review page details(attributes) to the review instance.
-
-
-IV. Scraper is responsible for
+II. Scraper is responsible for
 
 1. Scrape the album list pages(new or reissue), and return the albums array.
 
@@ -54,3 +46,27 @@ IV. Scraper is responsible for
 3. Scrape the album review page, and return the album review hash with details/attributes.
 
 4. Scrape the track review page, and return the track review hash with details/attributes.
+
+
+III. Review is responsible for
+
+1. batch create album/track instances from the given data collection. 
+
+2. adds review page details(attributes) to the either album or track instance.
+
+IV. Album is responsible for
+
+1. makes an album review instance. When an album instance initialize, use mass assignment to give the instance keys and values, save the instance to the class variable @@all.
+
+2. keeps track of all the album review instances that has been created. Album class @@all array is accessible by the CLI class.
+
+
+V. Track is responsible for
+
+1. makes an track review instance. When an track instance initialize, use mass assignment to give the instance keys and values, save the instance to the class variable @@all.
+
+2. keeps track of all the track review instances that has been created. Track class @@all array is accessible by the CLI class.
+
+
+
+
