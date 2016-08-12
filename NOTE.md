@@ -1,5 +1,5 @@
-Six Classes: CLI, Scraper, Review: Album, Track, Reissue
-
+Five Classes: CLI, Scraper, Album, Track, Reissue
+Module: Review
 
 I. CLI is responsible for
  

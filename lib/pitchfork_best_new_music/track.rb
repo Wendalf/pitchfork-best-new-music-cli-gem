@@ -1,4 +1,7 @@
-class Track < Review
+class Track
+	
+	extend Review::ClassMethods
+	include Review::InstanceMethods
 
 	attr_accessor :artist_name, :track_title, :genre, :review_author, :review_url, :first_paragraph
 
