@@ -1,11 +1,11 @@
-class Album < Review
+class Reissue < Review
 
 	attr_accessor :artist_name, :album_title, :genre, :review_author, :review_url, :deck, :first_paragraph
 
 	@@all = []
 
-	def initialize(single_album_hash)
-		single_album_hash.each do |key, value|
+	def initialize(single_reissue_hash)
+		single_reissue_hash.each do |key, value|
 			self.send("#{key}=", value)
 		end
 		@@all << self

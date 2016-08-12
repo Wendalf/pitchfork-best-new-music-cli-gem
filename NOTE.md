@@ -1,5 +1,4 @@
-Four main Classes: CLI, Scraper, Album, Track
-One Module: Review
+Six Classes: CLI, Scraper, Review: Album, Track, Reissue
 
 
 I. CLI is responsible for
@@ -67,6 +66,11 @@ V. Track is responsible for
 
 2. keeps track of all the track review instances that has been created. Track class @@all array is accessible by the CLI class.
 
+VI. Reissue is responsible for
+
+1. makes an reissue review instance. When an reissue instance initialize, use mass assignment to give the instance keys and values, save the instance to the class variable @@all.
+
+2. keeps reissue of all the reissue review instances that has been created. Track class @@all array is accessible by the CLI class.
 
 
 
