@@ -5,6 +5,7 @@ class CLI
 	BEST_NEW_TRACKS_URL = "http://pitchfork.com/reviews/best/tracks/"
 	
 	def run
+		puts "I'm in master branch"
 		puts "Welcome to Pitchfork Best New Music!"
 		make_best_new_albums
 		make_best_new_reissues
