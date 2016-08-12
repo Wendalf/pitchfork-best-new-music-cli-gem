@@ -1,4 +1,7 @@
-class Reissue < Review
+class Reissue
+	
+	extend Review::ClassMethods
+	include Review::InstanceMethods
 
 	attr_accessor :artist_name, :album_title, :genre, :review_author, :review_url, :deck, :first_paragraph
 
