@@ -24,8 +24,7 @@ Or install it yourself as:
 
 run the below command and follow the menu/instructions on the screen.
 
-$ bin/pitchfork-best-new-music
-
+    $ bin/pitchfork-best-new-music
 
 ## Development
 
