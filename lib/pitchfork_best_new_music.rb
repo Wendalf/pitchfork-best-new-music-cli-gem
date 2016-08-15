@@ -3,6 +3,8 @@ require 'nokogiri'
 require 'open-uri'
 require 'launchy'
 require 'colorize'
+require 'catpix'
+require 'ruby-progressbar'
 
 require_relative './pitchfork_best_new_music/version'
 require_relative './pitchfork_best_new_music/cli'

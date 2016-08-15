@@ -8,6 +8,9 @@ module Review
 			end
 		end
 		
+		def find(input)
+			self.all[input-1]
+		end
 	end
 
 	module InstanceMethods

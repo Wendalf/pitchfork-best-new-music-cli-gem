@@ -1,5 +1,6 @@
 class Scraper
 
+# scraping method for both Best New Album and Best New Reissue page.
 	def self.scraped_albums(album_list_url)
 		page = Nokogiri::HTML(open(album_list_url).read, nil, 'utf-8')
 		albums = page.css("div.fragment-list div.review")
@@ -7,7 +8,7 @@ class Scraper
 		albums.each do |album|
 			single_album_hash = {
 				artist_name: album.css("a div.album-artist ul.artist-list li").text,
-				album_title: album.css("a div.album-artist h2.title").text,
+				album_title: album.css("a div.album-artist h2.title").text.gsub(/^\s|\s$/, ''),
 				genre: album.css("div.meta ul.genre-list li a").text,
 				review_author: album.css("div.meta ul.authors li a").text,
 				review_url: "http://pitchfork.com" + album.css("a").attribute("href").value
@@ -17,6 +18,7 @@ class Scraper
 		scraped_albums
 	end
 
+# scraping method for the top featured track located apart from the rest of the listed tracks on the Best New Tracks page.
 	def self.scraped_featured_track(page)	
 		featured_track = page.css("div.track-hero")
 		scraped_featured_track = {
@@ -28,6 +30,7 @@ class Scraper
 		}
 	end
 
+# scraping method for the listed tracks on the Best New Tracks page.
 	def self.scraped_listed_tracks(page)
 		tracks = page.css("div.track-collection-item")
 		scraped_listed_tracks = []
@@ -44,6 +47,7 @@ class Scraper
 		scraped_listed_tracks
 	end
 
+# return a scraped tracks array from the scraped Best New Tracks page.
 	def self.scraped_tracks(track_list_url)
 		page = Nokogiri::HTML(open(track_list_url).read, nil, 'utf-8')
 		scraped_tracks = self.scraped_listed_tracks(page)
@@ -55,23 +59,25 @@ class Scraper
 		# scraped_tracks.flatten!
 	end
 
+# scraping method for both detailed Album review and detailed Reissue review page.
 	def self.scraped_album_review(album_review_url)
 		album_review_doc = Nokogiri::HTML(open(album_review_url).read, nil, 'utf-8')
 		review = album_review_doc.css("div.article-content")
-		first_paragraph_doc = review.css("div.contents.dropcap p")[0]
+		paragraph = review.css("div.contents p").map{|p| p.text + "\n"}
 
 		scraped_album_review_hash = {
 			deck: review.css("div.abstract p").text,
-			first_paragraph: first_paragraph_doc.text
+			paragraph: paragraph
 		}
 	end
 
+# scraping method for both detailed Track review page.
 	def self.scraped_track_review(track_review_url)
 		track_review_doc = Nokogiri::HTML(open(track_review_url).read, nil, 'utf-8')
 		review = track_review_doc.css("div.review-copy-container")
-		first_paragraph_doc = review.css("div.review-copy div.contents p")[0]
+		paragraph = review.css("div.review-copy div.contents p").map{|p| p.text + "\n"}
 
-		scraped_track_review_hash = {first_paragraph: first_paragraph_doc.text}
+		scraped_track_review_hash = {paragraph: paragraph}
 	end
 
 end
