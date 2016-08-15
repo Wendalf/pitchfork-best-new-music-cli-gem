@@ -1,5 +1,5 @@
 Five Classes: CLI, Scraper, Album, Track, Reissue
-Module: Review
+One Module: Review
 
 I. CLI is responsible for
  
@@ -21,18 +21,19 @@ I. CLI is responsible for
       .
       .
       .
-      25. exit back to the main menu
+      25. back to the main menu
    - asks user’s input to access the detail of the music’s review.
    - outputs “invalid input” and asks for the user’s input again when user enter an invalid input other the number of the music review or exit back to main menu.
 
 3. - display details(attributes) of this music review, including title, artist name, genre, review author, etc.
    - display introduction/headline of the music review.
-   - display the first paragraph of the review.
+   - display the review.
    - asks user’s input to access the whole review/listen to the featured tracks, back to the music list, or exit gem.
    - MENU
-      1. launchy the review web page
-      2. back to the music list
-      3. exit gem
+      1. option to launchy the review web page
+      2. list music again
+      3. back to the main menu
+      4. exit gem
    - outputs “invalid input” and asks for the user’s input again when user enter an invalid input other the menu options.
 
 
