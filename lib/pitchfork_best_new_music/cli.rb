@@ -30,7 +30,7 @@ class CLI
 		puts "Thank you for using Pitchfork Best New Music! See you next time!"
 	end
 
-#main-menu for the CLI
+	#main-menu for the CLI
 	def mainmenu
 		puts "------- Main Menu -------"
 		puts "-- 1. Best New Album --"
@@ -57,7 +57,7 @@ class CLI
 		end
 	end
 
-#sub-menu for each review class
+	#sub-menu for each review class
 	def list_menu(type)
 		puts "---------- Best New #{type} Menu ----------"
 		puts "1-24 -- Get individual review info."
@@ -73,9 +73,10 @@ class CLI
 		end
 	end
 
+	# Create a review instance based on user's input and the review class that was passed in as an argument. Display review detail based on review class.
 	def display_review_detail(type, input)
 		review = Object.const_get(type).find(input.to_i)
-		#pass type as a string/argument to get the respective class name, and find the instance based on user's input number.
+		#pass type as a string parameter to get the respective class name, and find the instance based on user's input number.
 		case type
 		when "Album"
 			display_album_detail(review)
@@ -87,6 +88,7 @@ class CLI
 		review_action(type, review)
 	end
 
+	# Review detail page action, open review web page and/or display the review detail sub menu
 	def review_action(type, review)
 		puts "----------------------------------------"
 		puts "Would you like read the review in your browser and listen to the featured music? Enter y(yes) or n(no)."
@@ -101,19 +103,6 @@ class CLI
 			puts "Invalid input.".colorize(:red)
 			review_action(type, review)
 		end
-	end
-
-	def diplay_list_with_menu(type)
-		case type
-		when "Album"
-			display_albums
-		when "Track"
-			display_tracks
-		when "Reissue"
-			display_reissues
-		end
-		
-		list_menu(type)
 	end
 
 	def review_sub_menu(type)
@@ -132,6 +121,20 @@ class CLI
 			puts "Invalid input.".colorize(:red)
 			review_sub_menu(type)
 		end
+	end
+
+	# list the reviews based on the reivew class type parameter. 
+	def diplay_list_with_menu(type)
+		case type
+		when "Album"
+			display_albums
+		when "Track"
+			display_tracks
+		when "Reissue"
+			display_reissues
+		end
+		
+		list_menu(type)
 	end
 
 	#Making Albums and Albums' details. Display Album list and album details. 
