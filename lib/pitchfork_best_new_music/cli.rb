@@ -12,11 +12,8 @@ class CLI
 
 	def scraping
 		make_albums
-		add_details_to_album_review
 		make_tracks
-		add_details_to_track_review
 		make_reissues
-		add_details_to_reissue_review
 	end
 
 	def welcome
@@ -41,12 +38,21 @@ class CLI
 		input = gets.strip
 		case input
 			when "1"
+				if Album.all[0].paragraph == nil
+					add_details_to_album_review
+				end
 				display_albums
 				list_menu("Album")
 			when "2"
-				display_tracks
+				if Track.all[0].paragraph == nil
+					add_details_to_track_review
+				end
+				display_tracks		
 				list_menu("Track")
 			when "3"
+				if Reissue.all[0].paragraph == nil
+					add_details_to_reissue_review
+				end
 				display_reissues
 				list_menu("Reissue")
 			when "4"
