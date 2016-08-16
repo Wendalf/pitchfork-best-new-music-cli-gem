@@ -27,6 +27,14 @@ class CLI
 		puts "Thank you for using Pitchfork Best New Music! See you next time!"
 	end
 
+	def spinning_cursor
+		SpinningCursor.run do
+		banner "Scraping from pitchfork.com"
+		type :spinner
+		message "Scraping Done."
+		end
+	end
+
 	#main-menu for the CLI
 	def mainmenu
 		puts "------- Main Menu -------"
@@ -39,19 +47,25 @@ class CLI
 		case input
 			when "1"
 				if Album.all[0].paragraph == nil
+					spinning_cursor
 					add_details_to_album_review
+					SpinningCursor.stop
 				end
 				display_albums
 				list_menu("Album")
 			when "2"
 				if Track.all[0].paragraph == nil
+					spinning_cursor
 					add_details_to_track_review
+					SpinningCursor.stop
 				end
 				display_tracks		
 				list_menu("Track")
 			when "3"
 				if Reissue.all[0].paragraph == nil
+					spinning_cursor
 					add_details_to_reissue_review
+					SpinningCursor.stop
 				end
 				display_reissues
 				list_menu("Reissue")
